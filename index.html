@@ -1,0 +1,1614 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Ncoref Home&Tec | Catálogo</title>
+
+  <!-- SEO básico -->
+  <meta name="description" content="Catálogo Ncoref Home&Tec. Elige productos, agrégalos al carrito y compra por WhatsApp en Perú." />
+  <meta name="theme-color" content="#0b63f6" />
+
+  <!-- Preload del primer banner para cargar más rápido -->
+  <link rel="preload" as="image" href="img/Banner_1.jpg" imagesrcset="img/Banner_1.jpg 1x" />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --txt:#0f172a;
+      --muted:#64748b;
+      --line:rgba(15,23,42,.12);
+      --card:#ffffff;
+      --chip:#f1f5f9;
+      --brand:#0b63f6;
+      --brand2:#0ea5e9;
+      --shadow:0 12px 30px rgba(2,6,23,.08);
+      --radius:18px;
+
+      /* header oscuro */
+      --header-bg: rgba(2,6,23,.92);
+      --header-line: rgba(255,255,255,.10);
+      --header-txt: #ffffff;
+      --header-muted: rgba(255,255,255,.70);
+      --header-btn-bg: rgba(255,255,255,.10);
+      --header-btn-border: rgba(255,255,255,.18);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:linear-gradient(180deg,#ffffff,#f7fbff);
+      color:var(--txt);
+    }
+    a{color:inherit}
+    img{max-width:100%;display:block}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:30;
+      background: var(--header-bg);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--header-line);
+    }
+    .wrap{
+      max-width:1180px; margin:0 auto;
+      padding:14px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{display:flex; align-items:center; gap:10px}
+    .logo{
+      width:40px;height:40px;border-radius:12px;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      display:grid;place-items:center;color:#fff;font-weight:900;
+      box-shadow:0 10px 24px rgba(11,99,246,.22);
+    }
+    .sub{color:var(--header-muted);font-size:13px}
+    .actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .btn{
+      border:0;border-radius:14px;padding:10px 14px;
+      background:var(--brand);color:#fff;font-weight:900;cursor:pointer;
+      box-shadow:0 10px 22px rgba(11,99,246,.18);
+    }
+    .btn.secondary{
+      background: var(--header-btn-bg);
+      color: var(--header-txt);
+      border:1px solid var(--header-btn-border);
+      box-shadow:none;
+    }
+    .btn.ghost{
+      background:transparent;color:var(--txt);
+      border:1px solid var(--line);
+      box-shadow:none;
+    }
+    .btn:disabled{opacity:.5;cursor:not-allowed}
+
+    header .brand > div > div:first-child{
+      color: var(--header-txt);
+    }
+
+    main{padding:18px 16px 28px}
+    .container{max-width:1180px;margin:0 auto}
+
+    /* Slider */
+    .bannerCard{
+      border:1px solid var(--line);
+      border-radius:20px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .slider{
+      position:relative;
+      width:100%;
+      aspect-ratio: 1920 / 500;
+      overflow:hidden;
+      background: linear-gradient(90deg,#eaf6ff 0%,#ffffff 18%,#ffffff 82%,#eaf6ff 100%);
+    }
+    @media (max-width:700px){
+      .slider{ aspect-ratio: 16 / 7; }
+    }
+    .slides{
+      height:100%;
+      display:flex;
+      transition: transform .45s ease;
+      will-change: transform;
+    }
+    .slide{min-width:100%;height:100%;position:relative;}
+    .slide img{
+      width:100%;
+      height:100%;
+      object-fit: contain;
+      object-position:center;
+      background:transparent;
+    }
+    .sNav{
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 10px; pointer-events:none;
+    }
+    .sBtn{
+      pointer-events:auto;
+      width:42px;height:42px;border-radius:999px;
+      border:0 !important;
+      background:transparent;
+      backdrop-filter:none;
+      cursor:pointer;
+      display:grid;place-items:center;
+      font-weight:900;
+      color:#fff;
+      text-shadow:0 2px 10px rgba(0,0,0,.45);
+    }
+    .sBtn:hover{
+    background:rgba(0,0,0,.15);          /* opcional: leve hover */
+}
+    .dots{
+      position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
+      display:flex; gap:6px; padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(2,6,23,.10);
+      backdrop-filter: blur(6px);
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background:rgba(2,6,23,.22);
+      border:0; cursor:pointer;
+    }
+    .dot.active{ background: var(--brand); }
+
+    /* Hero */
+    .hero{
+      margin-top:14px;
+      padding:16px 16px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .hero h1{margin:0 0 6px;font-size:20px}
+    .hero p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Categorías */
+    .catRow{
+      margin:14px 0 6px;
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      overflow:auto;
+      padding:6px 2px 10px;
+      scrollbar-width:thin;
+    }
+    .catItem{
+      flex:0 0 auto;
+      width:110px;
+      text-align:center;
+      cursor:pointer;
+      user-select:none;
+    }
+    .catCircle{
+      width:78px;height:78px;margin:0 auto 8px;
+      border-radius:999px;
+      border:3px solid rgba(11,99,246,.22);
+      display:grid; place-items:center;
+      background:#fff;
+      box-shadow:0 10px 22px rgba(2,6,23,.06);
+      overflow:hidden;
+      transition:.15s transform ease, .15s border-color ease;
+    }
+    .catCircle img{width:62px;height:62px; object-fit:contain;}
+    .catItem.active .catCircle{border-color: var(--brand);transform: translateY(-1px);}
+    .catLabel{font-size:13px;color:var(--txt);}
+    .catItem.active .catLabel{ font-weight:900; }
+
+    /* Buscador */
+    .topbar{
+      margin:12px 0 10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .search{
+      flex:1; min-width:240px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+    }
+    input, select{
+      width:100%;
+      padding:11px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--txt);
+      outline:none;
+      box-shadow:0 10px 18px rgba(2,6,23,.04);
+    }
+    select{max-width:280px}
+    .pill{
+      font-size:12px;
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      color:var(--muted);
+      background:#fff;
+      box-shadow:0 10px 18px rgba(2,6,23,.04);
+    }
+
+    /* Grid productos */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px;
+      margin-top:8px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* ✅ IMAGEN: sin recorte/sin sobrepasar */
+    .img{
+      height:230px;
+      background:#f3f7ff;
+      display:flex;align-items:center;justify-content:center;
+      position:relative;
+      overflow:hidden;
+      padding:10px;
+      border-bottom:1px solid var(--line);
+    }
+    .img img{
+      width:100%;
+      height:100%;
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+      object-position:center;
+      border-radius:14px;
+      background:#fff;
+    }
+
+    .p{padding:14px;display:flex;flex-direction:column;gap:10px}
+    .title{margin:0;font-weight:950}
+    .row{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      margin-top:4px;
+    }
+    .price{font-weight:950}
+    .old{color:var(--muted);text-decoration:line-through;font-size:12px;margin-left:8px}
+
+    /* ✅ Vista principal: especificaciones */
+    .specPreview{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .specPreview li{margin:3px 0}
+
+    /* Trust cards */
+    .trust{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:12px;
+    }
+    .tcard{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:12px;
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .tcard b{display:block;margin-bottom:4px}
+    .tcard span{color:var(--muted);font-size:13px}
+
+    /* Drawer carrito */
+    .drawer{
+      position:fixed; top:0; right:-420px;
+      width:390px; max-width:92vw; height:100vh;
+      background:#fff;
+      border-left:1px solid var(--line);
+      transition:.25s;
+      z-index:60;
+      display:flex; flex-direction:column;
+    }
+    .drawer.open{right:0}
+    .drawer header{
+      position:sticky; top:0;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      padding:14px 16px;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .drawer .content{
+      padding:14px;
+      display:flex; flex-direction:column; gap:10px;
+      overflow:auto;
+    }
+    .item{
+      display:flex; gap:10px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:10px;
+      background:#fff;
+      box-shadow:0 10px 18px rgba(2,6,23,.04);
+    }
+    .thumb{
+      width:56px;height:56px;border-radius:14px;
+      background:#f1f5f9;
+      overflow:hidden;
+      display:grid;place-items:center;
+      color:var(--muted);font-size:12px;
+      border:1px solid rgba(2,6,23,.08);
+    }
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    .item h4{margin:0;font-size:14px}
+    .qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+    .qty button{
+      width:28px;height:28px;border-radius:10px;
+      border:1px solid var(--line);
+      background:#fff;color:var(--txt);
+      cursor:pointer;
+    }
+    .footer{
+      padding:14px;
+      border-top:1px solid var(--line);
+      position:sticky; bottom:0;
+      background:#fff;
+    }
+    .total{display:flex;justify-content:space-between;align-items:center;font-weight:950;padding:6px 2px 10px}
+    .overlay{
+      position:fixed; inset:0;
+      background:rgba(2,6,23,.35);
+      opacity:0; pointer-events:none;
+      transition:.2s;
+      z-index:50;
+    }
+    .overlay.show{opacity:1;pointer-events:auto}
+
+    .warn{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(245,158,11,.35);
+      background:rgba(245,158,11,.10);
+      color:#92400e;
+      display:none;
+    }
+
+    /* Modal “Ver” */
+    .modal{
+      position:fixed; inset:0;
+      display:none;
+      z-index:80;
+      padding:12px;
+      overflow:auto;
+    }
+    .modal.show{display:block}
+    .modal .back{
+      position:fixed; inset:0;
+      background:rgba(2,6,23,.55);
+    }
+    .modal .box{
+      position:relative;
+      width:min(1020px, calc(100vw - 24px));
+      height:min(92vh, 940px);
+      margin:0 auto;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 40px 90px rgba(2,6,23,.25);
+      display:flex; flex-direction:column;
+    }
+    .modal .head{
+      padding:14px 16px;
+      border-bottom:1px solid var(--line);
+      display:flex; justify-content:space-between; align-items:center;
+      flex:0 0 auto;
+      background:#fff;
+    }
+    .modal .body{
+      display:grid;
+      grid-template-columns: 1.15fr 1fr;
+      flex:1 1 auto;
+      min-height:0;
+    }
+    @media (max-width:860px){
+      .modal .box{ height:min(92vh, 980px); }
+      .modal .body{ grid-template-columns:1fr; }
+    }
+
+    .gallery{
+      display:flex; flex-direction:column;
+      gap:10px;
+      padding:12px;
+      overflow:auto;
+      min-height:0;
+      background:#f7fbff;
+    }
+
+    /* ✅ IMAGEN MODAL: se ajusta y NO recorta */
+    .mainimg{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      height: clamp(260px, 55vh, 520px);
+      min-height: 0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      box-shadow:0 10px 18px rgba(2,6,23,.04);
+    }
+    .mainimg img{
+      width:100%;
+      height:100%;
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+      object-position:center;
+      display:block;
+    }
+    @media (max-width:860px){
+      .mainimg{ height: clamp(240px, 45vh, 520px); }
+    }
+
+    .gnav{position:absolute; inset:0; display:flex; justify-content:space-between; align-items:center; padding:0 10px; pointer-events:none}
+    .gbtn{
+      pointer-events:auto;
+      width:42px;height:42px;border-radius:999px;
+      border:1px solid rgba(2,6,23,.12);
+      background:rgba(255,255,255,.85);
+      cursor:pointer;
+      font-weight:900;
+      display:grid;place-items:center;
+    }
+    .thumbs{display:flex; gap:8px; flex-wrap:wrap}
+    .thumbbtn{
+      width:56px;height:56px;border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      overflow:hidden;
+      cursor:pointer;
+      opacity:.9;
+    }
+    .thumbbtn.active{outline:2px solid rgba(11,99,246,.55); opacity:1}
+    .thumbbtn img{width:100%;height:100%;object-fit:cover}
+
+    .modal .info{
+      display:flex; flex-direction:column;
+      min-height:0;
+      border-left:1px solid rgba(2,6,23,.08);
+      background:#fff;
+    }
+    @media (max-width:860px){
+      .modal .info{ border-left:none; border-top:1px solid rgba(2,6,23,.08); }
+    }
+    .infoScroll{
+      padding:14px 16px;
+      overflow:auto;
+      min-height:0;
+      flex:1 1 auto;
+      padding-bottom:160px;
+    }
+    .infoFooter{
+      flex:0 0 auto;
+      padding:12px 16px;
+      border-top:1px solid rgba(2,6,23,.10);
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      position:sticky;
+      bottom:0;
+    }
+    .secTitle{
+      font-weight:950;
+      margin:12px 0 6px;
+      font-size:13px;
+      letter-spacing:.2px;
+      color:#0f172a;
+    }
+    .textBlock{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.48;
+      margin:0;
+      white-space:pre-line;
+    }
+    .bullets{
+      margin:6px 0 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .bullets li{margin:4px 0}
+
+    /* Chips */
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{
+      font-size:12px;
+      background:var(--chip);
+      border:1px solid rgba(2,6,23,.08);
+      padding:5px 10px;
+      border-radius:999px;
+      color:#334155;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">🛒</div>
+      <div>
+        <div style="font-weight:950">Ncoref Home&Tec</div>
+        <div class="sub">Catálogo profesional • WhatsApp</div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn secondary" id="btnCart">Carrito (<span id="cartCount">0</span>)</button>
+      <button class="btn" id="btnWhats">WhatsApp</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- ===== BANNER / SLIDER ===== -->
+    <section class="bannerCard" aria-label="Promociones">
+      <div class="slider" id="slider" role="region" aria-roledescription="carousel" aria-label="Promociones">
+        <div class="slides" id="slides">
+          <div class="slide"><img src="img/Banner_1.jpg" alt="Promoción 1" width="1920" height="500" decoding="async" fetchpriority="high"></div>
+          <div class="slide"><img src="img/Banner_2.jpg" alt="Promoción 2" width="1920" height="500" loading="lazy" decoding="async"></div>
+          <div class="slide"><img src="img/Banner_3.jpg" alt="Promoción 3" width="1920" height="500" loading="lazy" decoding="async"></div>
+          <div class="slide"><img src="img/Banner_4.jpg" alt="Promoción 4" width="1920" height="500" loading="lazy" decoding="async"></div>
+          <div class="slide"><img src="img/Banner_5.jpg" alt="Promoción 5" width="1920" height="500" loading="lazy" decoding="async"></div>
+        </div>
+
+        <div class="sNav" aria-hidden="false">
+          <button class="sBtn" id="sPrev" aria-label="Banner anterior">‹</button>
+          <button class="sBtn" id="sNext" aria-label="Banner siguiente">›</button>
+        </div>
+
+        <div class="dots" id="dots" aria-label="Indicadores del banner"></div>
+      </div>
+    </section>
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>Compra rápida por WhatsApp</h1>
+      <p>Selecciona productos, agrégalos al carrito y envía tu pedido en un mensaje.</p>
+    </div>
+
+    <div class="warn" id="warnBox"></div>
+
+    <!-- Categorías en círculos -->
+    <div class="catRow" id="catRow" aria-label="Categorías rápidas"></div>
+
+    <!-- Buscador -->
+    <div class="topbar">
+      <div class="search">
+        <input id="q" placeholder="Buscar productos (ej: aire, enfriador, portátil)..." />
+        <select id="cat">
+          <option value="all">Todas las categorías</option>
+        </select>
+      </div>
+      <div class="pill" id="status">Cargando...</div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <div class="trust">
+      <div class="tcard"><b>🚚 Envío a todo Perú</b><span>Coordinamos por WhatsApp según tu distrito/ciudad.</span></div>
+      <div class="tcard"><b>🛡️ Garantía</b><span>Soporte y cambios según políticas del producto.</span></div>
+      <div class="tcard"><b>✅ Compra segura</b><span>Confirmación de pedido y seguimiento por WhatsApp.</span></div>
+    </div>
+
+  </div>
+</main>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- Drawer carrito -->
+<aside class="drawer" id="drawer" aria-label="Carrito">
+  <header>
+    <div style="font-weight:950">Tu carrito</div>
+    <button class="btn secondary" id="btnClose">Cerrar</button>
+  </header>
+  <div class="content" id="cartItems"></div>
+  <div class="footer">
+    <div class="total">
+      <span>Total</span>
+      <span id="cartTotal">S/ 0.00</span>
+    </div>
+    <button class="btn" style="width:100%" id="btnCheckout">Comprar por WhatsApp</button>
+  </div>
+</aside>
+
+<!-- Modal ver -->
+<div class="modal" id="modal" aria-label="Detalle del producto">
+  <div class="back" id="modalBack"></div>
+  <div class="box">
+    <div class="head">
+      <div style="font-weight:950" id="mTitle">Producto</div>
+      <button class="btn secondary" id="mClose">Cerrar</button>
+    </div>
+
+    <div class="body">
+      <div id="mImg"></div>
+
+      <div class="info">
+        <div class="infoScroll">
+          <div class="secTitle">Descripción</div>
+          <p class="textBlock" id="mDesc"></p>
+
+          <div class="secTitle">Características</div>
+          <p class="textBlock" id="mFeatures"></p>
+
+          <div class="secTitle">Especificaciones</div>
+          <ul class="bullets" id="mSpecsList"></ul>
+
+          <div style="margin-top:10px">
+            <div class="secTitle">Etiquetas</div>
+            <div class="chips" id="mChips"></div>
+          </div>
+        </div>
+
+        <div class="infoFooter">
+          <div class="price" id="mPrice"></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+            <button class="btn ghost" id="mWhats">WhatsApp</button>
+            <button class="btn" id="mAdd">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script defer>
+  /* =========================
+     CONFIG
+  ========================== */
+  const waNumber = "51960825488"; // solo dígitos
+  const currency = "PEN";
+
+  /* =========================
+     PRODUCTOS (ACTUALIZADOS)
+  ========================== */
+  const products = [
+    {
+      id: "arctic-air-ultra-3en1",
+      name: "AIRE ACONDICIONADO 3 EN 1 PORTÁTIL ARTIC AIR ULTRA",
+      category: "Ventilador / Calefactor",
+      price: 70.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "Arctic Air Ultra es un aire acondicionado portátil diseñado para enfriar, humidificar y purificar el aire, creando un ambiente fresco y confortable de forma inmediata. Cuenta con tres velocidades de ventilación y salida de aire multidireccional, lo que permite una mejor distribución del aire en espacios personales.",
+      features:
+        "Gracias a su tecnología Hydro-Chill, el equipo aspira el aire caliente, lo hace pasar por un filtro de enfriamiento evaporativo y lo transforma en aire fresco al instante. Su funcionamiento es muy sencillo: solo debes llenar el tanque superior con agua, conectarlo y presionar el botón de encendido. Además, es energéticamente eficiente y libre de freón.\n\n" +
+        "Con un tanque de agua de 500 ml, el Arctic Air Ultra puede proporcionar aire fresco durante hasta 3 horas continuas. Su ventilador silencioso y su luz nocturna relajante lo convierten en la mejor opción para usar durante la noche y disfrutar de un descanso placentero. Su diseño compacto, ligero y portátil permite llevarlo fácilmente a cualquier lugar.",
+      tags: ["3 en 1", "Hydro-Chill", "Portátil", "Silencioso", "Luz nocturna"],
+      images: [
+        "img/Arctic_Air_Ultra_1.jpg",
+        "img/Arctic_Air_Ultra_2.jpg",
+        "img/Arctic_Air_Ultra_3.jpg",
+        "img/Arctic_Air_Ultra_4.jpg",
+        "img/Arctic_Air_Ultra_5.jpg"
+      ],
+      specs: [
+        "Medida: 18cmx15cmx18cm",
+        "Peso: 0.7 Kg",
+        "Color: Blanco",
+        "Modelo: Arctic storm",
+        "Voltaje: 220 V",
+        "Incluye: Control remoto"
+      ]
+    },
+    {
+      id: "mini-aire-3en1-portatil",
+      name: "Mini Aire Acondicionado Enfriador Ventilador Portátil",
+      category: "Ventilador / Calefactor",
+      price: 50.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "El humidificador portátil 3 en 1 es lo mejor para el hogar u oficina, ya que refresca, humidifica y purifica el aire durante todo el año. Funciona como enfriador evaporativo en verano y como humidificador en climas secos de otoño e invierno.",
+      features:
+        "Cuenta con tres velocidades ajustables, temporizador programable (1H, 2H y 3H) y un ventilador de corte en espiral 3D que mejora la eficiencia del flujo de aire, proporcionando una refrigeración instantánea y uniforme. Su diseño compacto, elegante y de construcción duradera, junto con su alimentación USB, lo convierten en una solución portátil y práctica para mayor comodidad en el trabajo o en casa.",
+      tags: ["3 en 1", "Portátil", "USB", "Hogar", "Oficina"],
+      images: [
+        "img/Humidificador_Portatil_3en1_1.jpg",
+        "img/Humidificador_Portatil_3en1_2.jpg",
+        "img/Humidificador_Portatil_3en1_3.jpg",
+        "img/Humidificador_Portatil_3en1_4.jpg",
+        "img/Humidificador_Portatil_3en1_5.jpg"
+      ],
+      specs: [
+        "Medida: 28cmx7cmx21cm",
+        "Peso: 0.2 Kg",
+        "Color: Blanco",
+        "Modelo: Enfriador personal",
+        "Incluye: Cable USB"
+      ]
+    },
+    {
+      id: "lampara-ventilador-techo",
+      name: "Lámpara Ventilador de Techo",
+      category: "Ventilador / Calefactor",
+      price: 50.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "Disfruta un hogar más fresco, cómodo y bien iluminado con este ventilador de techo con luz LED y control remoto, diseñado para simplificar tu día a día. Su formato compacto y moderno se integra perfectamente en cualquier espacio, aportando confort sin sacrificar estilo.",
+      features:
+        "Cuenta con cinco velocidades ajustables para personalizar el flujo de aire según tus necesidades y luz LED brillante de 6500 K, que proporciona una iluminación clara y eficiente. Gracias a su eficiencia energética A+ y potencia de 30 W, ofrece un excelente rendimiento con bajo consumo, siendo una opción más ecológica y económica.\n\n" +
+        "Es compatible con socket E27 estándar, lo que facilita su instalación, y su control remoto permite un manejo cómodo desde cualquier punto de la habitación. Una solución práctica, funcional y eficiente para mejorar el confort y la iluminación de tu hogar.",
+      tags: ["LED 6500K", "5 velocidades", "Control remoto", "E27", "A+"],
+      images: [
+        "img/Foco_Ventilador_Techo_1.jpg",
+        "img/Foco_Ventilador_Techo_2.jpg",
+        "img/Foco_Ventilador_Techo_3.jpg",
+        "img/Foco_Ventilador_Techo_4.jpg",
+        "img/Foco_Ventilador_Techo_5.jpg"
+      ],
+      specs: [
+        "Medida: 25cmx26cmx25cm",
+        "Peso: 0.7 Kg",
+        "Color: Blanco",
+        "Modelo: Enfriador personal",
+        "Incluye: Control remoto"
+      ]
+    },
+    {
+      id: "hello-watch-3-plus-ultra",
+      name: "Hello Watch 3 Plus Ultra",
+      category: "SmartWatch",
+      price: 150.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "El Hello Watch 3 PLUS Ultra cuida tu bienestar con funciones de monitoreo en tiempo real como ritmo cardíaco, nivel de oxígeno en sangre y temperatura, ayudándote a mantener un control constante de tu salud, mientras que su diseño vibrante y su rendimiento eficiente lo convierten en el smartwatch a elegir para quienes buscan estilo, personalidad y alto desempeño en un solo dispositivo.",
+      features:
+        "Cuenta con una pantalla LTPO AMOLED Full HD de 2,04 pulgadas, diseño rectangular, con resolución de hasta 425 × 518 píxeles y frecuencia de actualización de 90 Hz, que ofrece una visualización fluida y nítida. Integra Bluetooth 5.2, procesador A16, 128 MB de RAM y 4 GB de ROM, y es compatible con Android 5.0+ e iOS 8.0+ mediante la aplicación Qifit. Incorpora monitoreo de frecuencia cardíaca, SpO2 y temperatura las 24/7, además de seguimiento del sueño, 73 modos deportivos y resistencia al agua y al polvo IP68.\n\n" +
+        "Su carcasa de titanio 1:1 de 49 mm, con botón de cierre de pulsera y tornillo trasero auténtico, aporta un diseño robusto y premium. Funciona con una batería de polímero de iones de litio de 450 mAh, compatible con carga por inducción, en un cuerpo de 49 × 43 × 14 mm, combinando tecnología avanzada, durabilidad y estilo.",
+      tags: ["AMOLED", "SpO2", "Temperatura", "IP68", "73 deportes", "Bluetooth 5.2", "Premium"],
+      images: [
+        "img/Smartwatch_Hello3_1.jpg",
+        "img/Smartwatch_Hello3_2.jpg",
+        "img/Smartwatch_Hello3_3.jpg",
+        "img/Smartwatch_Hello3_4.jpg",
+        "img/Smartwatch_Hello3_5.jpg"
+      ],
+      specs: [
+        "Medida: 21cmx11cmx3cm",
+        "Peso: 0.18 Kg",
+        "Color: Negro / Beige",
+        "Modelo: Hello 3 + Plus Ultra",
+        "Incluye: Cable de carga, manual, correa de reloj"
+      ]
+    },
+    {
+      id: "mouse-ergonomico-vertical-inalambrico-negro",
+      name: "Mouse Ergonómico Vertical Inalámbrico Color Negro",
+      category: "Computo",
+      price: 45.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "Mouse ergonómico de diseño vertical que favorece una postura natural de la mano y la muñeca, brindando mayor comodidad durante su uso diario. Su estructura está pensada para adaptarse perfectamente a la forma de la palma, ayudando a reducir la tensión y el cansancio incluso en jornadas prolongadas.\n\nDesarrollado tanto para profesionales de oficina como para gamers, integra los botones izquierdo, derecho y la rueda de desplazamiento en una disposición lateral única, permitiendo un manejo más relajado y preciso. Gracias a su tecnología de seguimiento óptico de alta sensibilidad, ofrece un control suave y exacto sobre distintos tipos de superficies.",
+      features:
+        "Ratón Ergonómico Vertical Inalámbrico 5D con diseño de agarre recto que reduce la fatiga de la muñeca. Cuenta con conexión inalámbrica 2.4 GHz mediante receptor USB, sensor óptico de alta precisión y 6 botones multifunción para mayor productividad. Incorpora DPI ajustable en 3 niveles (800 / 1200 / 1600), ofreciendo control preciso y fluido. Su diseño creativo y moderno lo hace perfecto para laptops y PCs, perfecto para trabajo de oficina, estudio o uso diario.",
+      tags: ["Ergonómico", "Inalámbrico", "2.4 GHz", "DPI ajustable", "6 botones", "Oficina"],
+      images: [
+        "img/Mouse_Ergonomico_1.jpg",
+        "img/Mouse_Ergonomico_2.jpg",
+        "img/Mouse_Ergonomico_3.jpg",
+        "img/Mouse_Ergonomico_4.jpg",
+        "img/Mouse_Ergonomico_5.jpg"
+      ],
+      specs: [
+        "Medida: 12.3cmx6.2cmx7.5cm",
+        "Peso: 0.9 Kg",
+        "Color: Negro",
+        "Modelo: MVerticalVM",
+        "Incluye: mouse"
+      ]
+    },
+    {
+      id: "xiaomi-monitor-a24i",
+      name: "Xiaomi Monitor A24i",
+      category: "Computo",
+      price: 350.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "El Xiaomi Monitor A24i ofrece una experiencia visual clara y fluida, ideal tanto para el trabajo diario como para el entretenimiento. Su pantalla de 23.8 pulgadas con diseño ultradelgado proporciona imágenes nítidas y colores precisos, permitiendo una visualización cómoda incluso durante largas jornadas frente al monitor.\n\nGracias a su excelente calidad de imagen y amplio ángulo de visión, este monitor garantiza una reproducción uniforme del color desde cualquier posición. Su tasa de refresco fluida contribuye a una navegación más suave, reduciendo el cansancio visual y mejorando la productividad.",
+      features:
+        "Monitor de 23,8 pulgadas con resolución Full HD (1920 × 1080) que ofrece imágenes nítidas y cómodas para largas jornadas de trabajo. Su frecuencia de actualización de hasta 100 Hz garantiza una visualización más fluida al navegar, trabajar o disfrutar de contenido multimedia. Con 16,7 millones de colores y una cobertura del 99 % sRGB, brinda una reproducción precisa ideal para uso de oficina. Su diseño ultradelgado de 7,5 mm y biseles reducidos aporta un estilo moderno y elegante a cualquier espacio.",
+      tags: ["23.8\"", "Full HD", "100 Hz", "99% sRGB", "Ultradelgado"],
+      images: [
+        "img/xiaomi_monitor_1.jpg",
+        "img/xiaomi_monitor_2.jpg",
+        "img/xiaomi_monitor_3.jpg"
+      ],
+      specs: [
+        "Medida: 60cmx17cmx40cm",
+        "Peso: 3 Kg",
+        "Color: Negro",
+        "Modelo: A24i",
+        "Incluye: Monitor, cables, manual"
+      ]
+    },
+    {
+      id: "ventilador-doble-auto-hf-v998",
+      name: "Ventilador Doble para Auto",
+      category: "Accesorios Auto",
+      price: 40.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "El verano en Lima no perdona. El tráfico, el sol intenso y el calor encerrado en el auto convierten cada viaje en una experiencia incómoda: sudor, aire pesado, malos olores y una sensación constante de asfixia. Encender el aire acondicionado a veces enfría demasiado, consume más gasolina y no siempre soluciona el problema.",
+      features:
+        "Pensando en tu comodidad, llega el Ventilador Auto 360° Turbo Giratorio y Graduable, la solución práctica y eficiente para refrescar tu vehículo sin complicaciones.\n\n" +
+        "💨 Ventilación constante y direccionable, perfecto para mantener el aire en movimiento, reducir la sensación de calor y mejorar la circulación dentro del auto.\n" +
+        "🔇 Funcionamiento silencioso, perfecto para viajes largos, paseos familiares o traslados diarios.\n" +
+        "🚗 Portátil y fácil de instalar, te acompaña a donde vayas.\n" +
+        "⛽ Ahorra combustible, reduce la dependencia del aire acondicionado.",
+      tags: ["Auto", "360°", "Silencioso", "Portátil", "Ahorra combustible"],
+      images: [
+        "img/Ventilador_auto_dual_1.jpg",
+        "img/Ventilador_auto_dual_2.jpg",
+        "img/Ventilador_auto_dual_3.jpg",
+        "img/Ventilador_auto_dual_4.jpg",
+        "img/Ventilador_auto_dual_6.jpg"
+      ],
+      specs: [
+        "Medida: 23cmx10cmx10cm",
+        "Peso: 0.35 Kg",
+        "Color: Negro",
+        "Modelo: HF-V998",
+        "Incluye: ventilador"
+      ]
+    },
+    {
+      id: "toldo-plegable-3x3m-azul",
+      name: "Toldo Plegable 3x3M Moderno Resistente Protección Solar",
+      category: "Toldos",
+      price: 220.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "Disfruta cada momento al aire libre con nuestro toldo plegable de 3x3 metros, el aliado perfecto para crear espacios de sombra, descanso y bienestar. Idóneo para ferias, mercados, playas, jardines o terrazas, te permite protegerte del sol y la lluvia mientras compartes momentos únicos.",
+      features:
+        "Diseñado con materiales de alta calidad y una estructura firme y resistente, ofrece seguridad y durabilidad para acompañarte en cada ocasión. Su sistema plegable facilita un montaje rápido y sin esfuerzo, para que te concentres en lo más importante: relajarte, disfrutar un almuerzo al aire libre o pasar una tarde de verano inolvidable con familia y amigos en tu patio o jardín.",
+      tags: ["3x3", "Plegable", "Resistente", "Protección solar", "Exterior"],
+      images: [
+        "img/carpa_popup_1.jpg",
+        "img/carpa_popup_2.jpg",
+        "img/carpa_popup_3.jpg",
+        "img/carpa_popup_4.jpg"
+      ],
+      specs: [
+        "Medida: 147cmx20cmx20cm",
+        "Peso: 14 Kg",
+        "Color: Azul",
+        "Modelo: Toldo Plegable",
+        "Incluye: Toldo y piezas"
+      ]
+    },
+    {
+      id: "freidora-aire-silver-crest-s18-6l",
+      name: "Freidora de aire Silver Crest S-18 de 6L",
+      category: "Electrohogar",
+      price: 140.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "La freidora de aire digital transforma tus comidas favoritas en opciones más saludables, reduciendo hasta un 80 % de grasa sin sacrificar sabor ni textura. Gracias a su tecnología de circulación rápida de aire, logra un dorado perfecto sin usar aceite.",
+      features:
+        "La freidora de aire está equipada con una cesta de 6 L de cocina antiadherente y apta para lavavajillas. Es fácil transferir alimentos calientes al plato, así que esté seguro de que disfruta de tu tiempo de cocina y gourmet sin ninguna preocupación por la seguridad.\n\n" +
+        "Fácil para limpiar. La cesta extraíble de 6 litros le permite retirar rápida y fácilmente su cesta de freidora lista para vaciar su comida en su plato, mientras que el mango táctil fresco significa que puede tirar de la cesta y la freidora con facilidad y sin preocuparse por que el mango sea demasiado caliente para tocar.\n\n" +
+        "Funciones: 1. Freidora al aire sin aceite, dieta más saludable. 2. Gran capacidad. 3. Alta potencia. 4. Comida multifuncional: patatas fritas, pollo frito, pescado a la parrilla, pizza, bistec, alas de pollo y otros alimentos. 5. Cuando la olla se saca, se apaga automáticamente para mayor protección. 6. Revestimiento antiadherente de calidad alimentaria, fácil de limpiar.",
+      tags: ["6L", "Sin aceite", "Digital", "Antiadherente", "Fácil limpieza"],
+      images: [
+        "img/Freidora_de_Aire_1.jpg",
+        "img/Freidora_de_Aire_2.jpg",
+        "img/Freidora_de_Aire_3.jpg",
+        "img/Freidora_de_Aire_4.jpg",
+        "img/Freidora_de_Aire_5.jpg"
+      ],
+      specs: [
+        "Medida: 33cmx28cmx38cm",
+        "Peso: 3.6 Kg",
+        "Color: Negro",
+        "Modelo: S-18",
+        "Incluye: Freidora, manual."
+      ]
+    },
+    {
+      id: "pack-2-panales-piso-m-60x40",
+      name: "Pack De 2 Pañales de Piso Talla M 60X40 Cm",
+      category: "Accesorios para Perros",
+      price: 70.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "Si necesitas entrenar a tu cachorro y mantener tus pisos limpios, los pañales desechables ultra absorbentes para perros son la solución perfecta. Su diseño multicapa con sistema antifugas absorbe rápidamente, neutraliza olores desde el primer contacto y brinda comodidad para que tu mascota haga sus necesidades en casa, especialmente en días fríos o si aún no se siente segura en la calle.",
+      features:
+        "Son perfectos para educar a tu perro a un lugar específico, mantener el hogar seco y proteger superficies como pisos, sofás, camas o autos, siendo ideales para hogares, departamentos pequeños, perros mayores, jaulas, viajes o mascotas que pasan tiempo solas.",
+      tags: ["Mascotas", "Ultra absorbente", "Antifugas", "Neutraliza olores", "Entrenamiento"],
+      images: [
+        "img/Training_Pads_Pet_1.jpg",
+        "img/Training_Pads_Pet_2.jpg",
+        "img/Training_Pads_Pet_3.jpg"
+      ],
+      specs: [
+        "Medida: 20cmx28cmx30m",
+        "Peso: 3 Kg",
+        "Color: Celeste claro",
+        "Modelo: Pañales de Entrenamiento para Mascotas",
+        "Incluye: Pañales"
+      ]
+    },
+    {
+      id: "horno-desayunero-3en1-cafetera-parrilla",
+      name: "Horno Eléctrico de 3 En 1 - Cafetera Horno Parrilla y Café de regalo",
+      category: "Electrohogar",
+      price: 145.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "El Horno Desayunero 3 en 1 es la solución perfecta para preparar desayunos completos de forma rápida, práctica y eficiente. Gracias a su diseño multifuncional, permite freír, hornear y preparar café en un solo equipo, eliminando la necesidad de usar varios electrodomésticos y ayudándote a ahorrar tiempo y espacio en la cocina.",
+      features:
+        "Con esta máquina podrás disfrutar de un desayuno espectacular en solo minutos, ya que combina tostadora/horno, cafetera y plancha tipo sartén, facilitando la preparación de cada alimento al mismo tiempo. Perfecto para el hogar, familias o espacios reducidos, el Desayunero 3 en 1 convierte tus mañanas en una experiencia más cómoda y organizada.",
+      tags: ["3 en 1", "Desayunero", "Cafetera", "Parrilla", "Ahorra espacio"],
+      images: [
+        "img/breakfst_maker_1.jpg",
+        "img/breakfst_maker_2.jpg",
+        "img/breakfst_maker_3.jpg",
+        "img/breakfst_maker_4.jpg",
+        "img/breakfst_maker_5.jpg"
+      ],
+      specs: [
+        "Medida: 25cmx26cmx50cm",
+        "Peso: 4 Kg",
+        "Color: Negro",
+        "Modelo: 3 en 1",
+        "Incluye: Horno, manual, 1 Bolsa de café molido Caturra Amarilla"
+      ]
+    },
+    {
+      id: "ventilador-industrial-3en1",
+      name: "Ventilador Industrial 3 en 1",
+      category: "Ventilador / Calefactor",
+      price: 90.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "Ventilador 3 en 1 multifuncional, ideal para brindar frescura eficiente en cualquier espacio del hogar u oficina. Su sólida estructura de hierro garantiza mayor estabilidad, resistencia y larga vida útil, incluso con uso constante. Gracias a su práctico diseño convertible, puede utilizarse como ventilador de pedestal, de mesa o de pared, adaptándose fácilmente a cada ambiente y optimizando el espacio disponible. Incorpora 3 niveles de velocidad ajustables, permitiendo controlar la intensidad del aire según tu necesidad y disfrutar de un ambiente más cómodo en todo momento.",
+      features:
+        "Fabricado en acero y aluminio, garantiza durabilidad y estabilidad incluso en jornadas de uso prolongadas. Gracias a sus 3 velocidades y potencia de 65 W, puedes ajustar la intensidad del aire según tus necesidades, logrando un ambiente fresco y confortable en segundos.\n\n" +
+        "Su diseño multifuncional permite usarlo como ventilador de piso, escritorio o pared, e incluye herramientas para empotrar, brindando máxima flexibilidad de instalación. Solo conéctalo a la corriente y disfruta de un rendimiento potente y silencioso.\n\n" +
+        "Perfecto para quienes buscan fuerza, resistencia y frescura sin complicaciones.",
+      tags: ["3 en 1", "65W", "Acero", "Pared/mesa/piso", "Potente"],
+      images: [
+        "img/ventilador_industrial_1.jpg",
+        "img/ventilador_industrial_2.jpg",
+        "img/ventilador_industrial_3.jpg"
+      ],
+      specs: [
+        "Medida: 50cmx120cmx50cm",
+        "Peso: 5 Kg",
+        "Color: Negro",
+        "Modelo: 5 aspas 3 en 1",
+        "Incluye: Ventilador, manual."
+      ]
+    },
+    {
+      id: "zapatero-mueble-organizador",
+      name: "Zapatero Mueble Organizador",
+      category: "Muebles Organizadores",
+      price: 80.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "Mantén tu hogar ordenado y elegante con este práctico rack organizador de zapatos de diseño moderno. Ideal para dormitorios, closets o recibidores, combina funcionalidad y estilo en un solo mueble.\n\nFabricado con estructura resistente de metal y cubierta de tela de alta calidad, ofrece durabilidad y ligereza al mismo tiempo. Su diseño compacto pero espacioso permite organizar hasta 36 pares de zapatos, manteniéndolos protegidos del polvo y perfectamente ordenados.",
+      features:
+        "El rack organizador de zapatos de estilo moderno está diseñado para optimizar el espacio y mantener el calzado perfectamente ordenado. Cuenta con una estructura resistente de metal que brinda estabilidad y durabilidad, combinada con tela de alta calidad que protege los zapatos del polvo y aporta un acabado elegante. Dispone de 12 estantes amplios y 12 compartimentos tipo cajón que permiten organizar hasta 36 pares de zapatos, adaptándose a distintos tipos de calzado como zapatillas, tacones o zapatos deportivos. Su diseño compacto es ideal para dormitorios, closets o recibidores, además de ser ligero, fácil de armar y sencillo de limpiar, convirtiéndolo en una solución práctica y funcional para el hogar.",
+      tags: ["12 estantes", "12 cajones", "Hasta 36 pares", "Metal/Tela", "Moderno"],
+      images: [
+        "img/zapatero_1.jpg",
+        "img/zapatero_2.jpg",
+        "img/zapatero_3.jpg",
+        "img/zapatero_4.jpg"
+      ],
+      specs: [
+        "Medida: 108cmx118cmx30cm",
+        "Capacidad: 32 pares",
+        "Color: Marrón",
+        "Modelo: Organizador de zapatos",
+        "Incluye: Organizador de zapatos, manual"
+      ]
+    },
+    {
+      id: "cortador-multifuncional-12en1",
+      name: "Picador, Rebanador, Cortador y Rallador de Verduras y Frutas",
+      category: "Utensilios de cocina",
+      price: 38.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "Prepara tus alimentos de forma práctica y rápida con nuestro picador multifuncional. Diseñado para cortar, rebanar y rallar con precisión, está fabricado con materiales de alta calidad que garantizan resistencia y durabilidad. Sus cuchillas de acero inoxidable ofrecen un corte eficiente y uniforme, mientras que su estructura de plástico ABS de grado alimenticio es libre de BPA, no tóxica y segura para el uso diario. La opción ideal para simplificar la preparación de tus comidas caseras y ahorrar tiempo en la cocina.",
+      features:
+        "Este picador de verduras multifuncional incluye 7 cuchillas intercambiables que permiten cortar en cubos grandes o pequeños, hacer rebanadas gruesas o finas, rallar, triturar y realizar cortes en espiral, facilitando la preparación de frutas y verduras como papas, tomates, cebollas, zanahorias, pepinos o repollo en cuestión de minutos.\n\n" +
+        "Su diseño cuenta con 4 bases antideslizantes que brindan estabilidad, un contenedor de gran capacidad con canastilla escurridora para mayor practicidad y almacenamiento organizado de los accesorios. Es completamente desmontable y fácil de limpiar, ya que incluye herramientas para retirar residuos de forma segura. Ideal para ahorrar tiempo en la cocina y hacer tus preparaciones más rápidas, cómodas y eficientes.",
+      tags: ["12 en 1", "Acero inoxidable", "ABS grado alimenticio", "7 cuchillas", "Fácil limpieza"],
+      images: [
+        "img/cortador_multifuncional_1.jpg",
+        "img/cortador_multifuncional_2.jpg",
+        "img/cortador_multifuncional_3.jpg",
+        "img/cortador_multifuncional_4.jpg",
+        "img/cortador_multifuncional_5.jpg"
+      ],
+      specs: [
+        "Medida: 33.5cmx12.5cmx10cm",
+        "Material: Acero inoxidable, ABS y PC",
+        "Color: Verde",
+        "Modelo: Multifuncional 12 en 1",
+        "Incluye: 01 Set Completo de Picador de Verduras 12 en 1"
+      ]
+    },
+    {
+      id: "estanteria-metalica-plegable-raynee-5niveles",
+      name: "Estantería Metálica Plegable con ruedas Raynee 5 Niveles",
+      category: "Muebles Organizadores",
+      price: 190.00,
+      oldPrice: null,
+      stock: 10,
+      shipping: "Envío a todo Perú",
+      warranty: "Garantía 1 mes",
+      desc: "Este estante plegable de 5 niveles combina practicidad, gran capacidad y diseño moderno en un solo producto. Viene premontado y se despliega en menos de 5 segundos sin necesidad de herramientas; solo debes instalar las ruedas si deseas moverlo con facilidad. Sus cinco amplios niveles ofrecen espacio suficiente para organizar utensilios, electrodomésticos, libros o cualquier pertenencia, y al no estar en uso puede plegarse fácilmente para un almacenamiento compacto. Su estilo contemporáneo se adapta perfectamente a cualquier ambiente del hogar u oficina.",
+      features:
+        "Este estante plegable está fabricado en hierro metálico de alta calidad, ofreciendo una estructura resistente con diseño triangular que mejora la estabilidad y soporta gran capacidad de carga. Cuenta con rejillas laterales que evitan deslizamientos y estantes de malla que brindan ventilación y seguridad para tus objetos.\n\n" +
+        "Su diseño plegable permite ahorrar espacio cuando no está en uso y sus 4 ruedas giratorias de 360° (dos con freno) facilitan su movilidad. Además, posee un revestimiento especial anticorrosión, antioxidante y resistente a rayones y aceite, lo que lo hace duradero, fácil de limpiar y perfecto para organizar cocina, sala, oficina o garaje.",
+      tags: ["5 niveles", "Plegable", "Ruedas 360°", "Anticorrosión", "Premontado"],
+      images: [
+        "img/estanteria_metalica_cocina_1.jpg",
+        "img/estanteria_metalica_cocina_2.jpg",
+        "img/estanteria_metalica_cocina_3.jpg",
+        "img/estanteria_metalica_cocina_4.jpg",
+        "img/estanteria_metalica_cocina_5.jpg"
+      ],
+      specs: [
+        "Medida: 161cmx71cmx34cm",
+        "Material: Acero esmaltado",
+        "Color: Negro",
+        "Modelo: Organizador",
+        "Incluye: 1 caja en su interior incluye el organizador"
+      ]
+    }
+  ];
+
+  /* =========================
+     CATEGORÍAS CÍRCULOS (ICONOS)
+  ========================== */
+  const quickCats = [
+    { key:"all", label:"Todo", icon:"" },
+    { key:"Accesorios Auto", label:"Accesorios Auto", icon:"img/V_Accesorios_Auto_1" },
+    { key:"Computo", label:"Computo", icon:"img/V_Computo_256px_1" },
+    { key:"Cuidado Personal", label:"Cuidado Personal", icon:"img/V_Cuidado_Personal_256px_1" },
+    { key:"Electrohogar", label:"Electrohogar", icon:"img/V_Electrohogar_1" },
+    { key:"Mascotas", label:"Mascotas", icon:"img/V_Mascotas_256px_1" },
+    { key:"Muebles Organizadores", label:"Muebles Organizadores", icon:"img/V_muebles_organizadores_1" },
+    { key:"Smartwatch", label:"Smartwatch", icon:"img/V_smartwatch_1" },
+    { key:"Ventilador / Calefactor", label:"Ventilador / Calefactor", icon:"img/V_Ventilador_256px_1" }
+  ];
+
+  /* =========================
+     HELPERS
+  ========================== */
+  const $ = (id)=>document.getElementById(id);
+
+  function fmt(n){
+    try { return new Intl.NumberFormat("es-PE",{style:"currency",currency}).format(n); }
+    catch { return `S/ ${Number(n).toFixed(2)}`; }
+  }
+  function isValidWaNumber(num){ return /^[0-9]{10,15}$/.test(num); }
+  function showWarn(msg){ const w=$("warnBox"); w.style.display="block"; w.textContent=msg; }
+  function hideWarn(){ const w=$("warnBox"); w.style.display="none"; w.textContent=""; }
+
+  function productById(id){ return products.find(p=>p.id===id); }
+  function getImages(p){
+    if(Array.isArray(p.images) && p.images.length) return p.images;
+    return p.img ? [p.img] : [];
+  }
+  function firstImage(p){
+    const imgs=getImages(p);
+    return imgs[0] || "";
+  }
+
+  /* =========================
+     BANNER SLIDER
+  ========================== */
+  (function initBanner(){
+    const slidesEl = $("slides");
+    const sliderEl = $("slider");
+    const dotsEl = $("dots");
+    const total = slidesEl.children.length;
+    let idx = 0;
+    let timer = null;
+    let startX = null;
+
+    dotsEl.innerHTML = "";
+    for(let i=0;i<total;i++){
+      const b=document.createElement("button");
+      b.className="dot"+(i===0?" active":"");
+      b.setAttribute("aria-label","Ir al banner "+(i+1));
+      b.onclick=()=>go(i,true);
+      dotsEl.appendChild(b);
+    }
+    const dots = Array.from(dotsEl.children);
+
+    function render(){
+      slidesEl.style.transform = `translateX(${-idx*100}%)`;
+      dots.forEach((d,i)=>d.classList.toggle("active", i===idx));
+    }
+    function go(n, user=false){
+      idx = (n + total) % total;
+      render();
+      if(user) restart();
+    }
+    function next(){ go(idx+1); }
+    function start(){
+      stop();
+      timer = setInterval(next, 4500);
+    }
+    function stop(){
+      if(timer) clearInterval(timer);
+      timer=null;
+    }
+    function restart(){ start(); }
+
+    $("sNext").onclick=()=>go(idx+1,true);
+    $("sPrev").onclick=()=>go(idx-1,true);
+
+    sliderEl.addEventListener("mouseenter", stop);
+    sliderEl.addEventListener("mouseleave", start);
+
+    sliderEl.addEventListener("touchstart",(e)=>{ startX = e.touches[0].clientX; },{passive:true});
+    sliderEl.addEventListener("touchend",(e)=>{
+      if(startX==null) return;
+      const endX = e.changedTouches[0].clientX;
+      const dx = endX - startX;
+      startX=null;
+      if(Math.abs(dx) > 40){
+        if(dx<0) go(idx+1,true);
+        else go(idx-1,true);
+      }
+    });
+
+    render();
+    start();
+  })();
+
+  /* =========================
+     UI + FILTROS
+  ========================== */
+  const grid = $("grid");
+  const status = $("status");
+  const q = $("q");
+  const cat = $("cat");
+
+  // Drawer
+  const drawer = $("drawer");
+  const overlay = $("overlay");
+  $("btnCart").onclick = ()=>{ drawer.classList.add("open"); overlay.classList.add("show"); renderCart(); };
+  $("btnClose").onclick = ()=>{ drawer.classList.remove("open"); overlay.classList.remove("show"); };
+  overlay.onclick = ()=>{ drawer.classList.remove("open"); overlay.classList.remove("show"); };
+
+  // WhatsApp (header)
+  $("btnWhats").onclick = ()=>{
+    if(!isValidWaNumber(waNumber)){
+      showWarn("⚠️ Revisa tu número de WhatsApp en el código (solo dígitos).");
+      return;
+    }
+    window.location.href = `https://wa.me/${waNumber}?text=${encodeURIComponent("Hola, quiero información sobre sus productos.")}`;
+  };
+
+  function renderCategoriesSelect(){
+    const cats = Array.from(new Set(products.map(p=>p.category))).sort();
+    cats.forEach(c=>{
+      const opt=document.createElement("option");
+      opt.value=c; opt.textContent=c;
+      cat.appendChild(opt);
+    });
+  }
+
+  function createIconImg(basePath, alt){
+    const img=document.createElement("img");
+    img.alt=alt;
+    img.loading="lazy";
+    img.decoding="async";
+
+    if(!basePath){
+      img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-size='28'%3E%E2%98%85%3C/text%3E%3C/svg%3E";
+      return img;
+    }
+
+    const tryPng = basePath + ".png";
+    const tryJpg = basePath + ".jpg";
+    img.src = tryPng;
+    img.onerror = ()=>{
+      img.onerror = null;
+      img.src = tryJpg;
+    };
+    return img;
+  }
+
+  function renderQuickCats(){
+    const row = $("catRow");
+    row.innerHTML="";
+    quickCats.forEach((c, i)=>{
+      const el=document.createElement("div");
+      el.className="catItem"+(i===0?" active":"");
+      el.dataset.key=c.key;
+
+      const circle=document.createElement("div");
+      circle.className="catCircle";
+      circle.appendChild(createIconImg(c.icon, c.label));
+
+      const label=document.createElement("div");
+      label.className="catLabel";
+      label.textContent=c.label;
+
+      el.appendChild(circle);
+      el.appendChild(label);
+
+      el.onclick=()=>{
+        row.querySelectorAll(".catItem").forEach(x=>x.classList.remove("active"));
+        el.classList.add("active");
+
+        if(c.key==="all"){
+          cat.value="all";
+          q.value="";
+          applyFilters();
+          return;
+        }
+        const selectHas = Array.from(cat.options).some(o=>o.value===c.key);
+        if(selectHas){
+          cat.value=c.key;
+          q.value="";
+          applyFilters();
+        }else{
+          cat.value="all";
+          q.value=c.key;
+          applyFilters();
+        }
+      };
+
+      row.appendChild(el);
+    });
+  }
+
+  function cardImageHtml(p){
+    const img = firstImage(p);
+    if(img){
+      return `<img src="${img}" alt="${p.name}" loading="lazy" decoding="async">`;
+    }
+    return `<div style="padding:10px;color:#64748b">Agrega una imagen</div>`;
+  }
+
+  function specsPreviewHtml(p){
+    const specs = Array.isArray(p.specs) ? p.specs : [];
+    if(!specs.length) return `<ul class="specPreview"><li>Sin especificaciones</li></ul>`;
+    const items = specs.slice(0, 5).map(s => `<li>${s}</li>`).join("");
+    return `<ul class="specPreview">${items}</ul>`;
+  }
+
+  function renderProducts(list){
+    grid.innerHTML="";
+    status.textContent = `Mostrando ${list.length} productos`;
+
+    list.forEach(p=>{
+      const el=document.createElement("div");
+      el.className="card";
+
+      el.innerHTML = `
+        <div class="img">
+          ${cardImageHtml(p)}
+        </div>
+        <div class="p">
+          <h3 class="title">${p.name}</h3>
+          ${specsPreviewHtml(p)}
+
+          <div class="row">
+            <div class="price">
+              ${fmt(p.price)}
+              ${p.oldPrice ? `<span class="old">${fmt(p.oldPrice)}</span>` : ``}
+            </div>
+            <div style="display:flex;gap:10px">
+              <button class="btn ghost" data-act="details" data-id="${p.id}">Ver</button>
+              <button class="btn" data-act="add" data-id="${p.id}" ${p.stock<=0?"disabled":""}>Agregar</button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      el.querySelectorAll("button").forEach(b=>{
+        const id=b.getAttribute("data-id");
+        const act=b.getAttribute("data-act");
+        if(act==="add") b.onclick=()=>addToCart(id);
+        if(act==="details") b.onclick=()=>openModal(id);
+      });
+
+      grid.appendChild(el);
+    });
+  }
+
+  function applyFilters(){
+    hideWarn();
+    const term=q.value.trim().toLowerCase();
+    const c=cat.value;
+
+    const filtered = products.filter(p=>{
+      const okCat = (c==="all") || (p.category===c);
+      const okTerm = !term || (p.name+" "+(p.desc||"")+" "+(p.features||"")+" "+(p.tags||[]).join(" ")).toLowerCase().includes(term);
+      return okCat && okTerm;
+    });
+
+    renderProducts(filtered);
+  }
+
+  q.addEventListener("input", applyFilters);
+  cat.addEventListener("change", ()=>{
+    $("catRow").querySelectorAll(".catItem").forEach(x=>x.classList.remove("active"));
+    $("catRow").querySelector(".catItem")?.classList.add("active");
+    applyFilters();
+  });
+
+  /* =========================
+     CARRITO
+  ========================== */
+  const cart = new Map();
+  function updateBadge(){
+    let count=0; for(const qty of cart.values()) count += qty;
+    $("cartCount").textContent = count;
+  }
+  function addToCart(id){
+    cart.set(id, (cart.get(id)||0)+1);
+    updateBadge();
+  }
+  function inc(id){ cart.set(id,(cart.get(id)||0)+1); updateBadge(); renderCart(); }
+  function dec(id){
+    const qty=cart.get(id)||0;
+    if(qty<=1) cart.delete(id); else cart.set(id,qty-1);
+    updateBadge(); renderCart();
+  }
+
+  function renderCart(){
+    const cartItems = $("cartItems");
+    cartItems.innerHTML="";
+    let total=0;
+
+    if(cart.size===0){
+      cartItems.innerHTML=`<div style="color:#64748b">Tu carrito está vacío.</div>`;
+      $("cartTotal").textContent=fmt(0);
+      return;
+    }
+
+    for(const [id,qty] of cart.entries()){
+      const p=productById(id);
+      const line=p.price*qty; total+=line;
+
+      const item=document.createElement("div");
+      item.className="item";
+      const thumbSrc = firstImage(p);
+      const thumb = thumbSrc ? `<img src="${thumbSrc}" alt="${p.name}" loading="lazy" decoding="async">` : `<span>Img</span>`;
+
+      item.innerHTML=`
+        <div class="thumb">${thumb}</div>
+        <div style="flex:1">
+          <h4>${p.name}</h4>
+          <div style="color:#64748b;font-size:13px">${fmt(p.price)} c/u</div>
+          <div class="qty">
+            <button aria-label="Disminuir">-</button>
+            <div style="min-width:18px;text-align:center;font-weight:900">${qty}</div>
+            <button aria-label="Aumentar">+</button>
+            <div style="margin-left:auto;font-weight:950">${fmt(line)}</div>
+          </div>
+        </div>
+      `;
+      const [bMinus,bPlus]=item.querySelectorAll("button");
+      bMinus.onclick=()=>dec(id);
+      bPlus.onclick=()=>inc(id);
+      cartItems.appendChild(item);
+    }
+
+    $("cartTotal").textContent=fmt(total);
+  }
+
+  function buildWhatsAppOrder(){
+    let total=0; let lines=[];
+    for(const [id,qty] of cart.entries()){
+      const p=productById(id);
+      const line=p.price*qty; total+=line;
+      lines.push(`- ${p.name} x${qty} = ${fmt(line)}`);
+    }
+    return `Hola, quiero hacer este pedido:
+${lines.join("\n")}
+
+Total: ${fmt(total)}
+Nombre:
+Dirección/Referencia:
+Ciudad:
+Método de pago:`;
+  }
+
+  $("btnCheckout").onclick=()=>{
+    if(cart.size===0){ alert("Tu carrito está vacío."); return; }
+    if(!isValidWaNumber(waNumber)){
+      showWarn("⚠️ Revisa tu número de WhatsApp en el código (solo dígitos).");
+      return;
+    }
+    window.location.href=`https://wa.me/${waNumber}?text=${encodeURIComponent(buildWhatsAppOrder())}`;
+  };
+
+  /* =========================
+     MODAL “VER”
+  ========================== */
+  const modal = $("modal");
+  const mTitle = $("mTitle");
+  const mImg = $("mImg");
+  const mDesc = $("mDesc");
+  const mFeatures = $("mFeatures");
+  const mSpecsList = $("mSpecsList");
+  const mPrice = $("mPrice");
+  const mChips = $("mChips");
+  const mAdd = $("mAdd");
+  const mWhats = $("mWhats");
+
+  let currentModalId = null;
+  let gIndex = 0;
+
+  function renderGallery(p){
+    const imgs = getImages(p);
+    if(!imgs.length){
+      mImg.innerHTML = `<div class="gallery"><div class="mainimg"><div style="color:#64748b">Agrega imágenes</div></div></div>`;
+      return;
+    }
+    if(gIndex >= imgs.length) gIndex = 0;
+    const main = imgs[gIndex];
+
+    const thumbs = imgs.map((src, i)=>`
+      <button class="thumbbtn ${i===gIndex?'active':''}" data-i="${i}" title="Imagen ${i+1}">
+        <img src="${src}" alt="${p.name} ${i+1}" loading="lazy" decoding="async">
+      </button>
+    `).join("");
+
+    mImg.innerHTML = `
+      <div class="gallery">
+        <div class="mainimg">
+          <img src="${main}" alt="${p.name}" decoding="async">
+          <div class="gnav">
+            <button class="gbtn" id="gPrev" aria-label="Anterior">‹</button>
+            <button class="gbtn" id="gNext" aria-label="Siguiente">›</button>
+          </div>
+        </div>
+        <div class="thumbs" id="gThumbs">${thumbs}</div>
+      </div>
+    `;
+
+    $("gPrev").onclick = () => { gIndex = (gIndex - 1 + imgs.length) % imgs.length; renderGallery(p); };
+    $("gNext").onclick = () => { gIndex = (gIndex + 1) % imgs.length; renderGallery(p); };
+
+    document.querySelectorAll("#gThumbs .thumbbtn").forEach(btn=>{
+      btn.onclick = () => { gIndex = Number(btn.dataset.i); renderGallery(p); };
+    });
+  }
+
+  function openModal(id){
+    const p=productById(id);
+    currentModalId=id;
+    gIndex = 0;
+
+    renderGallery(p);
+    mTitle.textContent=p.name;
+    mDesc.textContent = p.desc || "";
+    mFeatures.textContent = p.features || "";
+
+    mSpecsList.innerHTML="";
+    (Array.isArray(p.specs)?p.specs:[]).forEach(line=>{
+      const li=document.createElement("li");
+      li.textContent=line;
+      mSpecsList.appendChild(li);
+    });
+
+    mChips.innerHTML="";
+    (p.tags||[]).forEach(t=>{
+      const s=document.createElement("span");
+      s.className="chip";
+      s.textContent=t;
+      mChips.appendChild(s);
+    });
+
+    mPrice.innerHTML = `${fmt(p.price)} ${p.oldPrice?`<span class="old">${fmt(p.oldPrice)}</span>`:""}`;
+    mAdd.disabled = (p.stock<=0);
+
+    modal.classList.add("show");
+  }
+
+  function closeModal(){
+    modal.classList.remove("show");
+    currentModalId=null;
+  }
+  $("mClose").onclick=closeModal;
+  $("modalBack").onclick=closeModal;
+
+  mAdd.onclick=()=>{ if(currentModalId) addToCart(currentModalId); };
+  mWhats.onclick=()=>{
+    if(!currentModalId) return;
+    if(!isValidWaNumber(waNumber)){
+      showWarn("⚠️ Revisa tu número de WhatsApp en el código (solo dígitos).");
+      return;
+    }
+    const p=productById(currentModalId);
+    const msg=`Hola, quiero información/comprar:
+- ${p.name}
+Precio: ${fmt(p.price)}
+¿Disponible?`;
+    window.location.href=`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+  };
+
+  window.addEventListener("keydown",(e)=>{
+    if(e.key==="Escape" && modal.classList.contains("show")) closeModal();
+  });
+
+  /* =========================
+     INIT
+  ========================== */
+  try{
+    renderCategoriesSelect();
+    renderQuickCats();
+    renderProducts(products);
+    status.textContent = `Mostrando ${products.length} productos`;
+    updateBadge();
+    hideWarn();
+  }catch(err){
+    showWarn("⚠️ Error en la página: " + err.message);
+    console.error(err);
+  }
+</script>
+</body>
+</html>
